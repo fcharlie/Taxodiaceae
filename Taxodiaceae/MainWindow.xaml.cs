@@ -17,7 +17,6 @@ using Microsoft.Win32;
 using MahApps.Metro;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using Serilog;
 
 namespace Taxodiaceae
 {
@@ -26,12 +25,10 @@ namespace Taxodiaceae
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        static string ErrorMessage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.AppSettings()
-                .CreateLogger();
             this.ArcsLoadingIndicator.IsActive = false;
         }
         static Task<int> TaxodiaceaeTaskInternal(string pack, string folder)
@@ -46,7 +43,8 @@ namespace Taxodiaceae
                 }
                 catch (Exception e)
                 {
-                    Log.Fatal("Start msiexec failed: {0}", e.Message);
+                    ErrorMessage = e.Message;
+                    //Log.Fatal("Start msiexec failed: {0}", e.Message);
                     return -1;
                 }
                 msiexec.WaitForExit();
@@ -89,7 +87,15 @@ namespace Taxodiaceae
         }
         private async void TaxodiaceaeRunTaskResultError(int error)
         {
-            string msg = String.Format("msiexec ExitCode: {0}", error);
+            string msg =null;
+            if (error == -1 && ErrorMessage.Length > 0)
+            {
+                msg = String.Format("Start msiexec error: {0}", ErrorMessage);
+            }
+            else
+            {
+               msg  = String.Format("msiexec ExitCode: {0}", error);
+            }
             await this.ShowMessageAsync("Sorry, Unpack failed ", msg);
         }
         private async void TaxodiaceaeRunTaskSuccessed(string path)
