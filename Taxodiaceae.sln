@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxodiaceae", "Taxodiaceae\Taxodiaceae.csproj", "{67B24FDA-33CB-4DF3-9373-7B9A994666AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "launcher", "launcher\launcher.csproj", "{06FE96DB-FE56-46FF-9106-69FB15D1A677}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{67B24FDA-33CB-4DF3-9373-7B9A994666AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67B24FDA-33CB-4DF3-9373-7B9A994666AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67B24FDA-33CB-4DF3-9373-7B9A994666AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06FE96DB-FE56-46FF-9106-69FB15D1A677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06FE96DB-FE56-46FF-9106-69FB15D1A677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06FE96DB-FE56-46FF-9106-69FB15D1A677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06FE96DB-FE56-46FF-9106-69FB15D1A677}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
