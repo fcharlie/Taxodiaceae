@@ -29,6 +29,10 @@ namespace Taxodiaceae
         public MainWindow()
         {
             InitializeComponent();
+            var args=Environment.GetCommandLineArgs();
+            if(args.Length>=2 && System.IO.File.Exists(args[1])){
+                PackfileUri.Text = args[1];
+            }
             this.ArcsLoadingIndicator.IsActive = false;
         }
         static Task<int> TaxodiaceaeTaskInternal(string pack, string folder)
